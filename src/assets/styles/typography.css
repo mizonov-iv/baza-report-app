@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Zona Pro';
+    src: url('./../fonts/ZonaPro-Regular.eot');
+    src: local('Zona Pro Regular'), local('ZonaPro-Regular'),
+    url('./../fonts/ZonaPro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./../fonts/ZonaPro-Regular.woff2') format('woff2'),
+    url('./../fonts/ZonaPro-Regular.woff') format('woff'),
+    url('./../fonts/ZonaPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zona Pro';
+    src: url('./../fonts/ZonaPro-Bold.eot');
+    src: local('Zona Pro Bold'), local('ZonaPro-Bold'),
+    url('./../fonts/ZonaPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./../fonts/ZonaPro-Bold.woff2') format('woff2'),
+    url('./../fonts/ZonaPro-Bold.woff') format('woff'),
+    url('./../fonts/ZonaPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zona Pro';
+    src: url('./../fonts/ZonaPro-Thin.eot');
+    src: local('Zona Pro Thin'), local('ZonaPro-Thin'),
+    url('./../fonts/ZonaPro-Thin.eot?#iefix') format('embedded-opentype'),
+    url('./../fonts/ZonaPro-Thin.woff2') format('woff2'),
+    url('./../fonts/ZonaPro-Thin.woff') format('woff'),
+    url('./../fonts/ZonaPro-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+h1 {
+    text-align: center;
+    margin: 1rem;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
