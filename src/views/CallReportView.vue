@@ -25,6 +25,7 @@
 
     <ul style="width: 100%" v-if="confirmed">
       <li v-for="(item, index) in confirmedArray" :key="index">
+        <p>Время подтвержденной встречи:</p>
         <select class="select" v-model="selectedNumbers[item]">
           <option :value="option.time" v-for="option in timeOptions" :key="option.id">
             {{option.time}}
@@ -62,6 +63,11 @@ const confirm = () => {
 
 const cnslog = () => {
   console.log(selectedNumbers.value)
+  console.log({
+    "Назначчено: ": appointed.value,
+    "Подтверждено: ": confirmed.value,
+    "Время встреч: ": selectedNumbers.value
+  })
 }
 
 const timeOptions = [

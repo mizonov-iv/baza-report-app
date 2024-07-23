@@ -1,5 +1,5 @@
 <template>
-  <h1>Salary Count</h1>
+  <p style="text-align: center">Этот раздел находится в стадии разработки</p>
 </template>
 
 <script>

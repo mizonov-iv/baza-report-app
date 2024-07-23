@@ -6,7 +6,13 @@
         {{employee.name}}
       </option>
     </select>
-    <button class="btn" @click="showOptions = true">Далее</button>
+    <button
+        class="btn"
+        @click="showOptions = true"
+        :disabled="!selectedPerson"
+    >
+      Далее
+    </button>
   </form>
 
   <ul class="options-list" v-else>
