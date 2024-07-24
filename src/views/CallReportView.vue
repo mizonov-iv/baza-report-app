@@ -48,7 +48,8 @@
 
 <script setup lang="ts">
 
-import {ref} from "vue";
+import {ref} from "vue"
+import axios from "axios";
 
 const appointed = ref()
 const confirmed = ref()
@@ -64,10 +65,33 @@ const confirm = () => {
 const cnslog = () => {
   console.log(selectedNumbers.value)
   console.log({
-    "Назначчено: ": appointed.value,
+    "Назначено: ": appointed.value,
     "Подтверждено: ": confirmed.value,
     "Время встреч: ": selectedNumbers.value
   })
+
+  sendMessage()
+}
+
+const sendMessage = () => {
+
+  const TOKEN = "7090072301:AAFZZHhY5SjBLOlud-efko5Z6GovjDWdyU0"
+  const CHAT_ID = "-4248844229"
+  const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
+
+  let message = `<b>Отчет по назначениям:</b>\n`
+  message += `<b>Назначено: </b> ${appointed.value} \n`
+  message += `<b>Подтверждено: </b> ${confirmed.value} \n`
+  message += `<b>Время встреч: </b> ${selectedNumbers.value} \n`
+
+  axios.post(URI_API, {
+    chat_id: CHAT_ID,
+    parse_mode: 'html',
+    text: message
+  })
+
+  appointed.value = ""
+  confirmed.value = ""
 }
 
 const timeOptions = [
