@@ -58,6 +58,18 @@ const staff = [
     id: 3,
     name: "Данила Г."
   },
+  {
+    id: 4,
+    name: "Анастасия М."
+  },
+  {
+    id: 5,
+    name: "Кристина А."
+  },
+  {
+    id: 6,
+    name: "Анастасия Ч."
+  },
 ]
 
 const showOptions = ref(false)

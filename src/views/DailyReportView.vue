@@ -71,11 +71,16 @@
       Далее
     </button>
   </form>
+  <Modal v-show="showModal" @closePopup="closePopup"></Modal>
 </template>
 
 <script setup>
-
 import {ref} from "vue";
+import Modal from "../components/Modal.vue"
+import { useRouter } from 'vue-router'
+import axios from "axios";
+
+const router = useRouter()
 
 const appointed = ref()
 const appointedAfter = ref()
@@ -86,12 +91,49 @@ const rko = ref()
 const meetingsArray = ref([])
 const selectedMeetings = ref([])
 
+const showModal = ref(false)
+
+const closePopup = () => {
+  showModal.value = false
+  router.push("/")
+}
+
 const handleMeetingsInput = () => {
   meetingsArray.value = Array(meetings.value).fill().map((e, i) => i + 1)
   console.log(meetingsArray.value)
 }
 
+const sendMessage = () => {
+
+  const TOKEN = "7090072301:AAFZZHhY5SjBLOlud-efko5Z6GovjDWdyU0"
+  const CHAT_ID = "-4248844229"
+  const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
+
+  let message = `<b>Отчет за день:</b>\n`
+  message += `<b>Назначено в ГЧ: </b> ${appointed.value} \n`
+  message += `<b>Назначено после ГЧ: </b> ${appointedAfter.value} \n`
+  message += `<b>Проведено: </b> ${selectedMeetings.value} \n`
+  message += `<b>Заведено: </b> ${volume.value} \n`
+  message += `<b>Заявок РКО: </b> ${rko.value} \n`
+
+  axios.post(URI_API, {
+    chat_id: CHAT_ID,
+    parse_mode: 'html',
+    text: message
+  })
+
+  appointed.value = ""
+  appointedAfter.value = ""
+  selectedMeetings.value
+  volume.value = ""
+  rko.value = ""
+}
+
+
 const handeBtn = () => {
+  sendMessage()
+  showModal.value = true
+
   console.log("Назначено в ГЧ: ", appointed.value)
   console.log("Назначено после ГЧ: ", appointedAfter.value)
   console.log("Проведено: ", selectedMeetings.value)

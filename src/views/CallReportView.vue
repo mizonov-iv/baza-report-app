@@ -36,25 +36,34 @@
 
     <button
         class="btn"
-        @click.prevent="cnslog"
+        @click.prevent="sendReport"
         :disabled="!confirmed || !selectedNumbers.length"
     >
       Отправить
     </button>
 
   </form>
-
+  <Modal v-show="showModal" @closePopup="closePopup"></Modal>
 </template>
 
 <script setup lang="ts">
-
 import {ref} from "vue"
 import axios from "axios";
+import Modal from "../components/Modal.vue"
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const appointed = ref()
 const confirmed = ref()
 const confirmedArray = ref([])
 const selectedNumbers = ref([])
+const showModal = ref(false)
+
+const closePopup = () => {
+  showModal.value = false
+  router.push("/")
+}
 
 const confirm = () => {
   console.log(confirmed.value)
@@ -62,15 +71,16 @@ const confirm = () => {
   console.log(confirmedArray.value)
 }
 
-const cnslog = () => {
+const sendReport = () => {
+  sendMessage()
+  showModal.value = true
+
   console.log(selectedNumbers.value)
   console.log({
     "Назначено: ": appointed.value,
     "Подтверждено: ": confirmed.value,
     "Время встреч: ": selectedNumbers.value
   })
-
-  sendMessage()
 }
 
 const sendMessage = () => {
@@ -141,12 +151,11 @@ const timeOptions = [
   },
 ]
 
-const addOption = (event) => {
-  // console.log(event.target.value)
-  time.push(event.target.value)
-  console.log(time)
-}
-
-const time = []
-
+// const addOption = (event) => {
+//   // console.log(event.target.value)
+//   time.push(event.target.value)
+//   console.log(time)
+// }
+//
+// const time = []
 </script>
