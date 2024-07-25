@@ -35,11 +35,28 @@
       <label class="login-input__placeholder">Проведено:</label>
     </div>
 
-    <ul v-show="meetings">
-      <li v-for="(item, index) in meetingsArray" :key="index">
-        <input type="text" v-model="selectedMeetings[index]">
+<!--    <ul v-show="meetings">-->
+<!--      <li class="input-field" v-for="(item, index) in meetingsArray" :key="index">-->
+<!--        <p>Какой объем, когда ответ?</p>-->
+<!--        <input class="login-input" type="text" v-model="selectedMeetings[index]">-->
+<!--      </li>-->
+<!--    </ul>-->
+
+    <ul style="width: 100%" v-show="meetings">
+      <li class="input-field" v-for="(item, index) in meetingsArray" :key="index">
+        <div class="input-field">
+          <input
+              class="login-input"
+              type="text"
+              v-model="selectedMeetings[index]"
+              required
+          >
+          <label class="login-input__placeholder">Фирма, объем-кп, дата ответа</label>
+        </div>
       </li>
     </ul>
+
+
 
     <!--ЗВАЕДЕНО-->
     <div class="input-field">
