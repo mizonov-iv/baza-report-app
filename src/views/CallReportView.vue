@@ -1,5 +1,6 @@
 <template>
   <h1>Отчет по звонкам:</h1>
+  <p style="text-align: center; font-size: 18px">{{managersStore.selectedManager}}</p>
   <form class="form">
 
     <div class="input-field">
@@ -51,8 +52,10 @@ import {ref} from "vue"
 import axios from "axios";
 import Modal from "../components/Modal.vue"
 import { useRouter } from 'vue-router'
+import {useManagersStore} from "../stores/managersStore";
 
 const router = useRouter()
+const managersStore = useManagersStore()
 
 const appointed = ref()
 const confirmed = ref()
@@ -89,7 +92,8 @@ const sendMessage = () => {
   const CHAT_ID = "-4248844229"
   const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
 
-  let message = `<b>Отчет по назначениям:</b>\n`
+  let message = `<b>${managersStore.selectedManager}</b> \n`
+  message += `<b>Отчет по назначениям: </b> \n`
   message += `<b>Назначено: </b> ${appointed.value} \n`
   message += `<b>Подтверждено: </b> ${confirmed.value} \n`
   message += `<b>Время встреч: </b> ${selectedNumbers.value} \n`

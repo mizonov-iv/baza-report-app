@@ -1,6 +1,7 @@
 <template>
+  <p style="text-align: center; font-size: 18px">{{managersStore.selectedManager}}</p>
   <form class="form" v-if="!showOptions">
-    <select class="select" v-model="selectedPerson">
+    <select class="select" v-model="managersStore.selectedManager">
       <option class="select__option" value="" selected>Выберите имя</option>
       <option class="select__option" :value="employee.name" v-for="employee in staff" :key="employee.id">
         {{employee.name}}
@@ -9,7 +10,7 @@
     <button
         class="btn"
         @click="showOptions = true"
-        :disabled="!selectedPerson"
+        :disabled="!managersStore.selectedManager"
     >
       Далее
     </button>
@@ -26,8 +27,11 @@
 
 <script setup>
 import {ref} from "vue"
+import {useManagersStore} from "../stores/managersStore";
 
-const selectedPerson = ref("")
+const managersStore = useManagersStore()
+const showOptions = ref(false)
+// const managersStore.selectedManager = ref("")
 const options = [
   {
     id: 1,
@@ -71,6 +75,4 @@ const staff = [
     name: "Анастасия Ч."
   },
 ]
-
-const showOptions = ref(false)
 </script>
