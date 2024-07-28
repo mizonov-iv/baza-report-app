@@ -96,8 +96,10 @@ import {ref} from "vue";
 import Modal from "../components/Modal.vue"
 import { useRouter } from 'vue-router'
 import axios from "axios";
+import {useManagersStore} from "../stores/managersStore";
 
 const router = useRouter()
+const managersStore = useManagersStore()
 
 const appointed = ref()
 const appointedAfter = ref()
@@ -126,12 +128,13 @@ const sendMessage = () => {
   const CHAT_ID = "-4248844229"
   const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
 
-  let message = `<b>Отчет за день:</b>\n`
-  message += `<b>Назначено в ГЧ: </b> ${appointed.value} \n`
-  message += `<b>Назначено после ГЧ: </b> ${appointedAfter.value} \n`
-  message += `<b>Проведено: </b> ${selectedMeetings.value} \n`
-  message += `<b>Заведено: </b> ${volume.value} \n`
-  message += `<b>Заявок РКО: </b> ${rko.value} \n`
+  let message = `<b>${managersStore.selectedManager}</b> \n`
+  message += `<b>Отчет за день:</b>\n`
+  message += `<b>Назначено в ГЧ: </b>${appointed.value} \n`
+  message += `<b>Назначено после ГЧ: </b>${appointedAfter.value} \n`
+  message += `<b>Проведено: </b>${meetings.value} ${selectedMeetings.value} \n`
+  message += `<b>Заведено: </b>${volume.value} \n`
+  message += `<b>Заявок РКО: </b>${rko.value} \n`
 
   axios.post(URI_API, {
     chat_id: CHAT_ID,
