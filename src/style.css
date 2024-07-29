@@ -117,7 +117,6 @@ option[selected] {
 
 .login-input {
     padding: 1.2rem;
-    /*margin-bottom: 2rem;*/
     width: 100%;
     border: 1px solid darkgray;
     border-radius: .5rem;
@@ -129,7 +128,7 @@ option[selected] {
 }
 
 .login-input:not(:last-child) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .login-input:focus {

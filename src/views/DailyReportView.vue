@@ -1,5 +1,5 @@
 <template>
-  <h1>Отчет за день:</h1>
+  <h3>Отчет за день: {{managersStore.selectedManager}}</h3>
   <form class="form">
     <!--НАЗНАЧЕНО В ГЧ:-->
     <div class="input-field">
@@ -55,8 +55,6 @@
         </div>
       </li>
     </ul>
-
-
 
     <!--ЗВАЕДЕНО-->
     <div class="input-field">
@@ -133,6 +131,17 @@ const handleMeetingsInput = () => {
   console.log(meetingsArray.value)
 }
 
+const handeBtn = () => {
+  console.log("Назначено в ГЧ: ", appointed.value)
+  console.log("Назначено после ГЧ: ", appointedAfter.value)
+  console.log("Проведено: ", selectedMeetings.value)
+  console.log("Заведено: ", volume.value)
+  console.log("Заявок РКО: ", rko.value)
+
+  sendMessage()
+  showModal.value = true
+}
+
 const sendMessage = () => {
 
   const TOKEN = "7090072301:AAFZZHhY5SjBLOlud-efko5Z6GovjDWdyU0"
@@ -158,17 +167,5 @@ const sendMessage = () => {
   selectedMeetings.value
   volume.value = ""
   rko.value = ""
-}
-
-
-const handeBtn = () => {
-  sendMessage()
-  showModal.value = true
-
-  console.log("Назначено в ГЧ: ", appointed.value)
-  console.log("Назначено после ГЧ: ", appointedAfter.value)
-  console.log("Проведено: ", selectedMeetings.value)
-  console.log("Заведено: ", volume.value)
-  console.log("Заявок РКО: ", rko.value)
 }
 </script>
