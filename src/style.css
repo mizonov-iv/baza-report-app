@@ -7,6 +7,11 @@
     padding: 0;
 }
 
+#app {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
 ul {
     list-style: none;
 }
