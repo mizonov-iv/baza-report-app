@@ -1,5 +1,5 @@
 <template>
-  <p style="text-align: center; font-size: 18px">{{managersStore.selectedManager}}</p>
+<!--  <p style="text-align: center; font-size: 18px">{{managersStore.selectedManager}}</p>-->
   <form class="form" v-if="!showOptions">
     <select class="select" v-model="managersStore.selectedManager">
       <option class="select__option" value="" selected>Выберите имя</option>

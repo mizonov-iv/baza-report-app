@@ -1,6 +1,5 @@
 <template>
-  <h1>Отчет по звонкам:</h1>
-  <p style="text-align: center; font-size: 18px">{{managersStore.selectedManager}}</p>
+  <h3>Отчет по звонкам: {{managersStore.selectedManager}}</h3>
   <form class="form">
 
     <div class="input-field">
@@ -43,6 +42,13 @@
       Отправить
     </button>
 
+    <button
+        class="btn"
+        @click.prevent="goBack"
+    >
+      Назад
+    </button>
+
   </form>
   <Modal v-show="showModal" @closePopup="closePopup"></Modal>
 </template>
@@ -74,6 +80,10 @@ const confirm = () => {
   console.log(confirmedArray.value)
 }
 
+const goBack = () => {
+  router.push("/")
+}
+
 const sendReport = () => {
   sendMessage()
   showModal.value = true
@@ -94,9 +104,9 @@ const sendMessage = () => {
 
   let message = `<b>${managersStore.selectedManager}</b> \n`
   message += `<b>Отчет по назначениям: </b> \n`
-  message += `<b>Назначено: </b> ${appointed.value} \n`
-  message += `<b>Подтверждено: </b> ${confirmed.value} \n`
-  message += `<b>Время встреч: </b> ${selectedNumbers.value} \n`
+  message += `<p>Назначено: </p> ${appointed.value} \n`
+  message += `<p>Подтверждено: </p> ${confirmed.value} \n`
+  message += `<p>Время встреч: </p> ${selectedNumbers.value} \n`
 
   axios.post(URI_API, {
     chat_id: CHAT_ID,

@@ -87,6 +87,13 @@
     >
       Далее
     </button>
+
+    <button
+        class="btn"
+        @click.prevent="goBack"
+    >
+      Назад
+    </button>
   </form>
   <Modal v-show="showModal" @closePopup="closePopup"></Modal>
 </template>
@@ -111,6 +118,10 @@ const meetingsArray = ref([])
 const selectedMeetings = ref([])
 
 const showModal = ref(false)
+
+const goBack = () => {
+  router.push("/")
+}
 
 const closePopup = () => {
   showModal.value = false

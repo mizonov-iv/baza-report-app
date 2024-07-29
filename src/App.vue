@@ -3,7 +3,7 @@
 
 <template>
   <RouterLink to="/">
-    <h1>2GIS-Report</h1>
+    <h1>BAZA-Report</h1>
   </RouterLink>
   <RouterView/>
 </template>
