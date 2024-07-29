@@ -102,7 +102,7 @@ const sendMessage = () => {
   const CHAT_ID = "-4248844229"
   const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
 
-  let message = `<b>Отчет по назначениям: ${managersStore.selectedManager}</b> \n`
+  let message = `<b>Отчет по назначениям: </b>${managersStore.selectedManager} \n`
   // message += `Отчет по назначениям: \n`
   message += `<b>Назначено: </b>${appointed.value} \n`
   message += `<b>Подтверждено: </b>${confirmed.value} \n`

@@ -51,7 +51,7 @@
               v-model="selectedMeetings[index]"
               required
           >
-          <label class="login-input__placeholder">Фирма, объем-кп, дата ответа</label>
+          <label class="login-input__placeholder">Результат встречи:</label>
         </div>
       </li>
     </ul>
@@ -148,11 +148,11 @@ const sendMessage = () => {
   const CHAT_ID = "-4248844229"
   const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
 
-  let message = `<b>${managersStore.selectedManager}</b> \n`
-  message += `<b>Отчет за день:</b>\n`
+  let message = `<b>Отчет за день: </b>${managersStore.selectedManager} \n`
   message += `<b>Назначено в ГЧ: </b>${appointed.value} \n`
   message += `<b>Назначено после ГЧ: </b>${appointedAfter.value} \n`
-  message += `<b>Проведено: </b>${meetings.value} ${selectedMeetings.value} \n`
+  message += `<b>Проведено: </b>${meetings.value} \n`
+  message += `${selectedMeetings.value} \n`
   message += `<b>Заведено: </b>${volume.value} \n`
   message += `<b>Заявок РКО: </b>${rko.value} \n`
 
