@@ -37,7 +37,7 @@
     <button
         class="btn"
         @click.prevent="sendReport"
-        :disabled="!confirmed || !selectedNumbers.length"
+        :disabled="!confirmed"
     >
       Отправить
     </button>
@@ -65,7 +65,7 @@ const managersStore = useManagersStore()
 
 const appointed = ref()
 const confirmed = ref()
-const confirmedArray = ref([])
+let confirmedArray = ref<number[]>([]);
 const selectedNumbers = ref([])
 const showModal = ref(false)
 
@@ -76,8 +76,10 @@ const closePopup = () => {
 
 const confirm = () => {
   console.log(confirmed.value)
-  confirmedArray.value = Array(confirmed.value).fill().map((e, i) => i + 1)
+  // confirmedArray.value = Array(confirmed.value).fill().map((e, i) => i + 1)
+  confirmedArray.value = Array.from({ length: confirmed.value }, (_, i) => i + 1);
   console.log(confirmedArray.value)
+
 }
 
 const goBack = () => {

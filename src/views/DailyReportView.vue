@@ -83,7 +83,7 @@
         @click.prevent="handeBtn"
         :disabled="!meetings || selectedMeetings.length !== meetings"
     >
-      Далее
+      Отправить
     </button>
 
     <button
