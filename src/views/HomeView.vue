@@ -1,5 +1,5 @@
 <template>
-<!--  <p style="text-align: center; font-size: 18px">{{managersStore.selectedManager}}</p>-->
+  <p style="text-align: center; font-size: 18px">{{managersStore.selectedManager}}</p>
   <form class="form" v-if="!showOptions">
     <select class="select" v-model="managersStore.selectedManager">
       <option class="select__option" value="" selected>Выберите имя</option>
@@ -48,6 +48,11 @@ const options = [
     name: "Рассчет ЗП",
     link: "/salary-count"
   },
+  {
+    id: 4,
+    name: "Полезные ссылки",
+    link: "/useful-links"
+  },
 ]
 const staff = [
   {
@@ -73,6 +78,10 @@ const staff = [
   {
     id: 6,
     name: "Анастасия Ч."
+  },
+  {
+    id: 7,
+    name: "Радмир"
   },
 ]
 </script>

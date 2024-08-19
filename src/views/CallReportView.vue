@@ -37,7 +37,7 @@
     <button
         class="btn"
         @click.prevent="sendReport"
-        :disabled="!confirmed"
+        :disabled="!confirmed && confirmed !== 0"
     >
       Отправить
     </button>
@@ -95,13 +95,14 @@ const sendReport = () => {
   })
 
   sendMessage()
+  console.log(selectedNumbers.value.splice(0,1))
   showModal.value = true
 }
 
 const sendMessage = () => {
 
   const TOKEN = "7090072301:AAFZZHhY5SjBLOlud-efko5Z6GovjDWdyU0"
-  const CHAT_ID = "-1002209146359"
+  const CHAT_ID = "-4200712551"
   const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
 
   let message = `<b>Отчет по назначениям: </b>${managersStore.selectedManager} \n`
@@ -122,47 +123,47 @@ const sendMessage = () => {
 
 const timeOptions = [
   {
-    id: 1,
+    id: 0,
     time: "12:00"
   },
   {
-    id: 2,
+    id: 1,
     time: "12:30"
   },
   {
-    id: 3,
+    id: 2,
     time: "13:00"
   },
   {
-    id: 4,
+    id: 3,
     time: "13:30"
   },
   {
-    id: 5,
+    id: 4,
     time: "14:00"
   },
   {
-    id: 6,
+    id: 5,
     time: "14:30"
   },
   {
-    id: 7,
+    id: 6,
     time: "15:00"
   },
   {
-    id: 8,
+    id: 7,
     time: "15:30"
   },
   {
-    id: 9,
+    id: 8,
     time: "16:00"
   },
   {
-    id: 10,
+    id: 9,
     time: "16:30"
   },
   {
-    id: 11,
+    id: 10,
     time: "17:00"
   },
 ]
