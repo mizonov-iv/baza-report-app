@@ -1,8 +1,9 @@
 <template>
   <h3>Полезные ссылки</h3>
-  <ul>
-    <li v-for="item in linksArray" :key="item.id">
+  <ul class="link-list">
+    <li class="link-list-item" v-for="item in linksArray" :key="item.id">
       {{item.name}}
+      <p>{{item.text}}</p>
     </li>
   </ul>
 </template>
@@ -12,15 +13,18 @@
 const linksArray = [
   {
     id: 0,
-    name: "item 1"
+    name: "item 1",
+    text: "some text"
   },
   {
     id: 1,
-    name: "item 2"
+    name: "item 2",
+    text: "some text"
   },
   {
     id: 2,
-    name: "item 3"
+    name: "item 3",
+    text: "some text"
   },
 ]
 </script>
