@@ -48,11 +48,11 @@ const options = [
     name: "Рассчет ЗП",
     link: "/salary-count"
   },
-  {
-    id: 4,
-    name: "Полезные ссылки",
-    link: "/useful-links"
-  },
+  // {
+  //   id: 4,
+  //   name: "Полезные ссылки",
+  //   link: "/useful-links"
+  // },
 ]
 const staff = [
   {
@@ -65,7 +65,7 @@ const staff = [
   },
   {
     id: 3,
-    name: "Данила Г."
+    name: "Артем Б."
   },
   {
     id: 4,
@@ -78,10 +78,6 @@ const staff = [
   {
     id: 6,
     name: "Анастасия Ч."
-  },
-  {
-    id: 7,
-    name: "Радмир"
   },
 ]
 </script>
