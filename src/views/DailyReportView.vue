@@ -145,7 +145,8 @@ const handeBtn = () => {
 const sendMessage = () => {
 
   const TOKEN = "7090072301:AAFZZHhY5SjBLOlud-efko5Z6GovjDWdyU0"
-  const CHAT_ID = "-4200712551"
+  // const CHAT_ID = "-4200712551" --> test bot id
+  const CHAT_ID = "-1002209146359"
   const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`
 
   let message = `<b>Отчет за день: </b>${managersStore.selectedManager} \n`
